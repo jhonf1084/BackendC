@@ -14,7 +14,7 @@ public class Venta {
     private Integer idVenta;
     private Date fecha;
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "usuario")
     private Usuario usuario;
     @Column (name = "ciudad_de_envio")
     private String ciudadDeEnvio;

@@ -12,19 +12,19 @@ public class Producto {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "id_marca")
+    @JoinColumn(name = "marca")
     private Marca marca;
 
     @ManyToOne
-    @JoinColumn(name = "id_genero")
+    @JoinColumn(name = "genero")
     private Genero genero;
 
     @ManyToOne
-    @JoinColumn(name = "id_color")
+    @JoinColumn(name = "color")
     private Color color;
 
     @ManyToOne
-    @JoinColumn(name = "id_talla")
+    @JoinColumn(name = "talla")
     private Talla talla;
     private Double valor;
     private Integer stock;

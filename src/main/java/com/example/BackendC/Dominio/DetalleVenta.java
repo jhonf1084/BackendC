@@ -12,10 +12,10 @@ public class DetalleVenta {
     private Long idDetalle;
 
     @ManyToOne
-    @JoinColumn(name = "id_venta")
+    @JoinColumn(name = "consecutivo_venta")
     private Venta venta;
     @ManyToOne
-    @JoinColumn(name = "id_producto")
+    @JoinColumn(name = "producto")
     private Producto producto;
     private Integer cantidad;
     private Double subTotal;
