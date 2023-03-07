@@ -1,6 +1,7 @@
 package com.example.BackendC.Dominio;
 
 import jakarta.persistence.*;
+import org.springframework.lang.NonNull;
 
 @Entity
 @Table (name = "Colores")
