@@ -1,6 +1,7 @@
 package com.example.BackendC.Dominio;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 
 import java.util.List;
 
@@ -17,6 +18,8 @@ public class DetalleVenta {
     @ManyToOne
     @JoinColumn(name = "producto")
     private Producto producto;
+    @Column(nullable = false)
+    @Pattern(regexp = "^[0-9]*$", message = "Solo numeros")
     private Integer cantidad;
     private Double subTotal;
 

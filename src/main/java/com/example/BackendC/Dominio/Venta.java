@@ -1,6 +1,7 @@
 package com.example.BackendC.Dominio;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import org.hibernate.annotations.JoinColumnOrFormula;
 
 import java.util.Date;
@@ -16,11 +17,12 @@ public class Venta {
     @ManyToOne
     @JoinColumn(name = "usuario")
     private Usuario usuario;
-    @Column (name = "ciudad_de_envio")
+    @Column (name = "ciudad_de_envio",nullable = false)
     private String ciudadDeEnvio;
-    @Column(name = "direccion_correspondencia")
+    @Column(name = "direccion_correspondencia",nullable = false)
     private String direccionCorrespondencia;
-    @Column(name = "correo_facturacion")
+    @Column(name = "correo_facturacion",nullable = false)
+    @Email(message = "El correo que intenta registrar no es valido")
     private String correoFacturacion;
 
     public Venta() {

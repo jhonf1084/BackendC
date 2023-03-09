@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class UsuarioImplementacion implements IUsuarioServicio {
 
@@ -18,6 +19,20 @@ public class UsuarioImplementacion implements IUsuarioServicio {
     }
 
 
+    @Override
+    public Usuario registro(Usuario usuario) throws Exception {
+        try {
+            if (iUsuarioRepositorio.existsByCorreoUsuario(usuario.getCorreoUsuario())) {
+                throw new IllegalArgumentException("El usuario ya se encuentra registrado");
+            }
+            return iUsuarioRepositorio.save(usuario);
+        } catch (Exception e) {
+            if (e instanceof IllegalArgumentException) {
+                throw e;
+            }
+            throw new Exception("Error inesperado tratando de guardar el usuario");
+        }
+    }
 
     @Override
     public Boolean login(String correoUsuario, String contrasena) throws Exception {
@@ -31,8 +46,15 @@ public class UsuarioImplementacion implements IUsuarioServicio {
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
-
-
     }
+
+//    @Override
+//    public Usuario findByDocumento(String docuemnto) throws Exception {
+//        try {
+//            return iUsuarioRepositorio.findByDocumento(docuemnto);
+//        }catch (Exception e){
+//            throw new Exception(e.getMessage());
+//        }
+//    }
 }
 

@@ -1,6 +1,9 @@
 package com.example.BackendC.Dominio;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
+
 
 @Entity
 @Table (name = "Usuarios")
@@ -9,17 +12,25 @@ public class Usuario {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id_usuario")
     private Integer idUsuario;
+    @Column(nullable = false)
+    @Pattern(regexp = "[a-zA-Z\s]+",message = "Solo letras y espacios")
     private String nombres;
+    @Column(nullable = false)
+    @Pattern(regexp = "[a-zA-Z\s]+",message = "Solo letras y espacios")
     private String apellidos;
-    @Column(name = "numero_documento")
+    @Column(name = "numero_documento",nullable = false)
+    @Pattern(regexp = "^[0-9]*$", message = "Solo numeros")
     private String numeroDocumento;
     @ManyToOne
-    @JoinColumn (name = "id_tipo_documento")
+    @JoinColumn (name = "id_tipo_documento",nullable = false)
     private TipoDocumento tipoDocumento;
 
-    @Column (name = "correo_usuario")
+    @Column (name = "correo_usuario",nullable = false)
+    @Email(message = "El correo que intenta registrar no es valido")
     private String correoUsuario;
-    @Column(name = "contraseña")
+    @Column(name = "contraseña",nullable = false)
+    @Pattern(regexp = "(?=^.{5,}$)((?=.*\\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[^A-Za-z0-9])(?=.*[a-z])|(?=.*[^A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9]))^.*", message = "contraseña debe ser de longitud mínima 5, y debe contener letras mayúsculas,\n" +
+            "letras minúsculas y números.\n")
     private String contrasena;
 
     public Usuario() {
