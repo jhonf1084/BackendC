@@ -92,7 +92,7 @@ insert into productos (descripcion, marca, genero, color, talla, valor, stock, b
 insert into productos (descripcion, marca, genero, color, talla, valor, stock, busquedas, imagen) values ('camiseta unicolor cuello v', 2, 2, 4, 9, 80000, 100, null, 'https://i.ibb.co/Y8KHk8S/camiseta-unicolor-cuello-v.webp');
 insert into productos (descripcion, marca, genero, color, talla, valor, stock, busquedas, imagen) values ('camiseta unicolor cuello v', 2, 2, 4, 9, 80000, 100, null, 'https://i.ibb.co/Y8KHk8S/camiseta-unicolor-cuello-v.webp');
 
-INSERT INTO usuarios (apellidos, contraseña, correo_usuario, nombres, numero_documento, id_tipo_documento) VALUES('Navarro', 'Alan01', 'alan@correo.com', 'Alan', '1', 1);
-INSERT INTO usuarios (apellidos, contraseña, correo_usuario, nombres, numero_documento, id_tipo_documento) VALUES('Yepes', 'Juan01', 'juan@correo.com', 'Juan', '2', 2);
-INSERT INTO usuarios (apellidos, contraseña, correo_usuario, nombres, numero_documento, id_tipo_documento) VALUES('Naranjo', 'Estela01', 'estela@correo.com', 'Estela', '3', 1);
-INSERT INTO usuarios (apellidos, contraseña, correo_usuario, nombres, numero_documento, id_tipo_documento) VALUES('Sepulveda', 'Daniela01', 'daniela@correo.com', 'Daniela', '4', 1);
+INSERT INTO usuarios (apellidos, contraseña, correo_usuario, nombres, numero_documento, id_tipo_documento) VALUES('Navarro', '$2a$10$6y315/GIy25gRHSw..v5f.MP4lyc1yf3JsAwoekIcrPPxtFWkAlSy', 'alan@correo.com', 'Alan', '1', 1);
+INSERT INTO usuarios (apellidos, contraseña, correo_usuario, nombres, numero_documento, id_tipo_documento) VALUES('Yepes', '$2a$10$Xm5qYrua5b81YmZTDXSmI.DUDkrRCMknFSPi61osJAa9pfSJM9t0q', 'juan@correo.com', 'Juan', '2', 2);
+INSERT INTO usuarios (apellidos, contraseña, correo_usuario, nombres, numero_documento, id_tipo_documento) VALUES('Naranjo', '$2a$10$OcbudJy1DRltdFMAPXZN3esLPZN/c0OKX.KG.PWz37d6X2i2ejTOy', 'estela@correo.com', 'Estela', '3', 1);
+INSERT INTO usuarios (apellidos, contraseña, correo_usuario, nombres, numero_documento, id_tipo_documento) VALUES('Sepulveda', '$2a$10$xU72vY/BRyg6lnE6RmuIM.XpwDWwXJzOM9C4kEV7KdRIrLKoRr686', 'daniela@correo.com', 'Daniela', '4', 1);
