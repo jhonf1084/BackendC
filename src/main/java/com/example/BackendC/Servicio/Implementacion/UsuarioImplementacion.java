@@ -4,6 +4,9 @@ import com.example.BackendC.Dominio.Usuario;
 import com.example.BackendC.Repositorio.IUsuarioRepositorio;
 import com.example.BackendC.Servicio.InterfazServicio.IUsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+
+
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,19 +16,26 @@ public class UsuarioImplementacion implements IUsuarioServicio {
 
     private IUsuarioRepositorio iUsuarioRepositorio;
 
+    private PasswordEncoder passwordEncoder;
+
+
     @Autowired
-    public UsuarioImplementacion(IUsuarioRepositorio iUsuarioRepositorio) {
+    public UsuarioImplementacion(IUsuarioRepositorio iUsuarioRepositorio, PasswordEncoder passwordEncoder) {
         this.iUsuarioRepositorio = iUsuarioRepositorio;
+        this.passwordEncoder = passwordEncoder;
+
     }
 
 
     @Override
     public Usuario registro(Usuario usuario) throws Exception {
         try {
-            if (iUsuarioRepositorio.existsByCorreoUsuario(usuario.getCorreoUsuario())) {
-                throw new IllegalArgumentException("El usuario ya se encuentra registrado");
-            }
-            return iUsuarioRepositorio.save(usuario);
+        if (iUsuarioRepositorio.existsByCorreoUsuario(usuario.getCorreoUsuario())) {
+            throw new IllegalArgumentException("El usuario ya se encuentra registrado");
+        }
+
+        usuario.setContrasena(passwordEncoder.encode(usuario.getContrasena()));
+        return iUsuarioRepositorio.save(usuario);
         } catch (Exception e) {
             if (e instanceof IllegalArgumentException) {
                 throw e;

@@ -32,7 +32,7 @@ public class WebSecurityConfig {
 
         return http
                 .csrf().disable()
-                .authorizeHttpRequests()
+                .authorizeRequests()
                 .anyRequest()
                 .authenticated()
                 .and()
