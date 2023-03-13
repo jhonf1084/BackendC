@@ -3,20 +3,21 @@ package com.example.BackendC.Dominio;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name = "Tallas")
+@Table (name = "tallas")
 public class Talla {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id_talla")
     private Integer idTalla;
-    private String talla;
+    @Column (name = "descripcion_talla")
+    private String decripcionTalla;
 
     public Talla() {
     }
 
-    public Talla(Integer idTalla, String talla) {
+    public Talla(Integer idTalla, String decripcionTalla) {
         this.idTalla = idTalla;
-        this.talla = talla;
+        this.decripcionTalla = decripcionTalla;
     }
 
     public Integer getIdTalla() {
@@ -27,11 +28,11 @@ public class Talla {
         this.idTalla = idTalla;
     }
 
-    public String getTalla() {
-        return talla;
+    public String getDecripcionTalla() {
+        return decripcionTalla;
     }
 
-    public void setTalla(String talla) {
-        this.talla = talla;
+    public void setDecripcionTalla(String decripcionTalla) {
+        this.decripcionTalla = decripcionTalla;
     }
 }

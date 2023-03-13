@@ -3,7 +3,7 @@ package com.example.BackendC.Dominio;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name = "Tipos_Documento")
+@Table (name = "tipos_Documento")
 public class TipoDocumento {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

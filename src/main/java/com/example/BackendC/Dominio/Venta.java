@@ -7,7 +7,7 @@ import org.hibernate.annotations.JoinColumnOrFormula;
 import java.util.Date;
 
 @Entity
-@Table(name = "Ventas")
+@Table(name = "ventas")
 public class Venta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

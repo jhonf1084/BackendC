@@ -1,23 +1,23 @@
 package com.example.BackendC.Dominio;
 
 import jakarta.persistence.*;
-import org.springframework.lang.NonNull;
 
 @Entity
-@Table (name = "Colores")
+@Table (name = "colores")
 public class Color {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id_color")
     private Integer idColor;
-    private String color;
+    @Column(name = "descripcion_color")
+    private String descripcionColor;
 
     public Color() {
     }
 
-    public Color(Integer idColor, String color) {
+    public Color(Integer idColor, String descripcionColor) {
         this.idColor = idColor;
-        this.color = color;
+        this.descripcionColor = descripcionColor;
     }
 
     public Integer getIdColor() {
@@ -28,11 +28,11 @@ public class Color {
         this.idColor = idColor;
     }
 
-    public String getColor() {
-        return color;
+    public String getDescripcionColor() {
+        return descripcionColor;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setDescripcionColor(String descripcionColor) {
+        this.descripcionColor = descripcionColor;
     }
 }

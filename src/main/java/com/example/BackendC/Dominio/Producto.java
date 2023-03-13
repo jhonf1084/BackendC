@@ -9,26 +9,31 @@ public class Producto {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id_producto")
     private Integer idProducto;
+    @Column(name = "descripcion")
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "marca")
+    @JoinColumn(name = "id_marca")
     private Marca marca;
 
     @ManyToOne
-    @JoinColumn(name = "genero")
+    @JoinColumn(name = "id_genero")
     private Genero genero;
 
     @ManyToOne
-    @JoinColumn(name = "color")
+    @JoinColumn(name = "id_color")
     private Color color;
 
     @ManyToOne
-    @JoinColumn(name = "talla")
+    @JoinColumn(name = "id_talla")
     private Talla talla;
+    @Column(name = "valor")
     private Double valor;
+    @Column(name = "stock")
     private Integer stock;
+    @Column(name = "busquedas")
     private Integer busquedas;
+    @Column(name = "imagen")
     private String imagen;
 
     public Producto() {
