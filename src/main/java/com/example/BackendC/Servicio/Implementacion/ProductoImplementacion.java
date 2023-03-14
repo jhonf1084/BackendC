@@ -19,7 +19,7 @@ public class ProductoImplementacion implements IProductoServicio {
 
     @Override
     public List<Producto> buscarPorDescripcionMarcaColor(String genero,String termino) {
-        return iProductoRepositorio.findProductoByDescripcionOrColorOrMarcaAndGenero(termino, genero);
+        return iProductoRepositorio.findProductoByDescripcion(termino, genero);
     }
 
     @Override
@@ -46,6 +46,15 @@ public class ProductoImplementacion implements IProductoServicio {
         try {
             producto.setBusquedas(producto.getBusquedas() + 1);
             iProductoRepositorio.save(producto);
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<Producto> obtenerProductosMasBuscados() throws Exception {
+        try {
+            return iProductoRepositorio.findTop4ByOrderByBusquedasDesc();
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }

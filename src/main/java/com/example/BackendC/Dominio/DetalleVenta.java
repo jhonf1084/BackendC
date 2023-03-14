@@ -9,7 +9,8 @@ import java.util.List;
 @Table(name = "Detalle_venta")
 public class DetalleVenta {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_detalle_venta")
     private Long idDetalle;
 
     @ManyToOne

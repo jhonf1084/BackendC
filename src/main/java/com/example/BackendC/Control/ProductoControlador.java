@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 //@CrossOrigin(origins = {"http://localhost:4200"})
@@ -20,9 +21,9 @@ public class ProductoControlador {
     }
 
     @GetMapping("/{genero}/{termino}")
-    public ResponseEntity<?> busquedaProducto(@PathVariable String genero,@PathVariable String termino) {
+    public ResponseEntity<?> busquedaProducto(@PathVariable String genero, @PathVariable String termino) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(productoImplementacion.buscarPorDescripcionMarcaColor(genero,termino));
+            return ResponseEntity.status(HttpStatus.OK).body(productoImplementacion.buscarPorDescripcionMarcaColor(genero, termino));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"Error\":\"Error. no se encuentran productos\"}");
 
@@ -57,6 +58,21 @@ public class ProductoControlador {
         }
     }
 
+    @GetMapping({"/masBuscados"})
+    public ResponseEntity<?> obtenerProductosMasBuscados() {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(productoImplementacion.obtenerProductosMasBuscados());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"Error\":\"Error. no se encuentran productos\"}");
+        }
+    }
 
-
+    @GetMapping("/genero/{genero}")
+    public ResponseEntity<List<Producto>> obtenerProductoPorGenero(@PathVariable String genero){
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(productoImplementacion.findProductoByGenero(genero));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
 }
