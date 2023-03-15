@@ -32,6 +32,7 @@ public class DetalleVentaImplementacion implements IDetalleVentaServicio {
     @Override
     public DetalleVenta registrarProducto(DetalleVenta detalleVenta) throws Exception {
         try {
+
             detalleVenta.setSubTotal(detalleVenta.getProducto().getValor()* detalleVenta.getCantidad());
             return iDetalleVentaRepositorio.save(detalleVenta);
         } catch (Exception e) {
